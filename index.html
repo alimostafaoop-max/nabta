@@ -1,295 +1,733 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نَبْتة 🌱</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Tahoma,sans-serif;
+}
 
-  <meta
-    name="description"
-    content="نَبْتة - منصة تعليمية تساعدك تفهم وتتعلم بطريقة أسهل وأمتع."
-  >
+body{
+  background:linear-gradient(135deg,#f8f1f8,#eef8f1);
+  color:#34263b;
+  min-height:100vh;
+}
 
-  <title>نَبْتة | منصتك التعليمية</title>
+header{
+  background:linear-gradient(135deg,#7b477f,#9a609f);
+  color:white;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 3px 12px #0002;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#b9e58c;
+}
+
+.container{
+  width:92%;
+  max-width:900px;
+  margin:25px auto;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.hero{
+  text-align:center;
+  padding:45px 15px;
+}
+
+.hero h1{
+  font-size:45px;
+  color:#704275;
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  color:#65a34b;
+}
+
+.hero p{
+  font-size:19px;
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+  border-radius:14px;
+  padding:13px 22px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.main-btn{
+  background:#719f52;
+  color:white;
+  box-shadow:0 5px 12px #0002;
+}
+
+.back-btn{
+  background:#eee2ef;
+  color:#704275;
+  margin-bottom:18px;
+}
+
+.title{
+  text-align:center;
+  color:#704275;
+  margin:15px 0 25px;
+  font-size:28px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:20px;
+  box-shadow:0 4px 15px #0001;
+  border:2px solid transparent;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#9a609f;
+}
+
+.card h3{
+  color:#704275;
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#777;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+.card button{
+  background:#719f52;
+  color:white;
+  width:100%;
+}
+
+.subject-card{
+  text-align:center;
+}
+
+.unit{
+  background:white;
+  border-radius:18px;
+  margin-bottom:15px;
+  padding:18px;
+  box-shadow:0 3px 12px #0001;
+}
+
+.unit h3{
+  color:#704275;
+  margin-bottom:12px;
+}
+
+.lesson{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px;
+  margin-top:8px;
+  background:#f7f2f7;
+  border-radius:12px;
+}
+
+.lesson button{
+  padding:8px 13px;
+  font-size:14px;
+  background:#719f52;
+  color:white;
+}
+
+.lesson-box{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 3px 15px #0001;
+  line-height:2;
+}
+
+.lesson-box h2{
+  color:#704275;
+  margin-bottom:15px;
+}
+
+.quiz{
+  margin-top:25px;
+  background:#eef7e9;
+  padding:20px;
+  border-radius:18px;
+}
+
+.quiz h3{
+  color:#527b3c;
+  margin-bottom:15px;
+}
+
+.option{
+  display:block;
+  background:white;
+  padding:12px;
+  margin:8px 0;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.note{
+  text-align:center;
+  margin:20px 0;
+  color:#777;
+}
+
+@media(max-width:600px){
+  .hero h1{font-size:38px}
+  .title{font-size:24px}
+  .lesson{flex-direction:column;align-items:stretch}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
+<header>
+  <div class="logo">🌱 نَبْتة <span>للتعلّم</span></div>
+</header>
 
-    <div class="header-container">
+<div class="container">
 
-      <a href="#" class="logo" aria-label="نَبْتة">
-        <span class="logo-icon">🌱</span>
-        <span class="logo-text">نَبْتة</span>
-      </a>
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="hero">
+    <h1>أهلاً بك في <span>نَبْتة</span> 🌱</h1>
+    <p>
+      منصة تعليمية بسيطة تساعدك تتعلم، تراجع، وتحل اختباراتك
+      بطريقة سهلة وممتعة.
+    </p>
+    <button class="main-btn" onclick="showPage('grades')">
+      🚀 ابدأ رحلتك
+    </button>
+  </div>
+</section>
 
-      <nav class="main-nav" aria-label="القائمة الرئيسية">
-        <a href="#home">الرئيسية</a>
-        <a href="#stages">المراحل</a>
-        <a href="#features">المميزات</a>
-        <a href="#about">عن نَبْتة</a>
-      </nav>
+<!-- GRADES -->
+<section id="grades" class="page">
+  <button class="back-btn" onclick="showPage('home')">⬅️ رجوع</button>
 
-      <button
-        class="profile-button"
-        type="button"
-        aria-label="الملف الشخصي"
-      >
-        👤
-      </button>
+  <h2 class="title">📚 اختار صفك</h2>
 
+  <div class="grid">
+
+    <div class="card">
+      <h3>🌱 أولى إعدادي</h3>
+      <p>ابدأ رحلتك التعليمية.</p>
+      <button onclick="openGrade('prep1')">دخول</button>
     </div>
 
-  </header>
+    <div class="card">
+      <h3>🌱 تانية إعدادي</h3>
+      <p>منهج 2025/2026 — مؤقت.</p>
+      <button onclick="openGrade('prep2')">دخول</button>
+    </div>
+
+    <div class="card">
+      <h3>🌱 تالتة إعدادي</h3>
+      <p>راجع دروسك واستعد للامتحانات.</p>
+      <button onclick="openGrade('prep3')">دخول</button>
+    </div>
+
+    <div class="card">
+      <h3>📘 أولى ثانوي</h3>
+      <p>المواد والدروس التعليمية.</p>
+      <button onclick="openGrade('sec1')">دخول</button>
+    </div>
+
+    <div class="card">
+      <h3>📘 تانية ثانوي</h3>
+      <p>راجع وطور مستواك.</p>
+      <button onclick="openGrade('sec2')">دخول</button>
+    </div>
+
+    <div class="card">
+      <h3>🎓 أولى بكالوريا</h3>
+      <p>منهج 2026/2027.</p>
+      <button onclick="openGrade('bac1')">دخول</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+<section id="subjects" class="page">
+  <button class="back-btn" onclick="showPage('grades')">⬅️ رجوع</button>
+
+  <h2 id="gradeTitle" class="title"></h2>
+
+  <div id="subjectsGrid" class="grid"></div>
+</section>
+
+<!-- LESSONS -->
+<section id="lessons" class="page">
+  <button class="back-btn" onclick="showPage('subjects')">⬅️ رجوع</button>
+
+  <h2 id="subjectTitle" class="title"></h2>
+
+  <div id="lessonsContent"></div>
+</section>
+
+<!-- LESSON -->
+<section id="lessonPage" class="page">
+  <button class="back-btn" onclick="showPage('lessons')">⬅️ رجوع</button>
+
+  <div class="lesson-box">
+    <h2 id="lessonTitle"></h2>
+
+    <p id="lessonText"></p>
+
+    <div class="quiz">
+      <h3>🧠 اختبار سريع</h3>
+
+      <p id="question"></p>
+
+      <label class="option">
+        <input type="radio" name="answer" value="a">
+        <span id="optionA"></span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="answer" value="b">
+        <span id="optionB"></span>
+      </label>
+
+      <label class="option">
+        <input type="radio" name="answer" value="c">
+        <span id="optionC"></span>
+      </label>
+
+      <button class="main-btn" onclick="checkAnswer()">
+        ✅ تصحيح الإجابة
+      </button>
+
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+
+const curriculum = {
+
+prep1:{
+ name:"أولى إعدادي",
+ subjects:[
+  "اللغة العربية",
+  "اللغة الإنجليزية",
+  "الرياضيات",
+  "العلوم",
+  "الدراسات الاجتماعية"
+ ]
+},
+
+prep2:{
+ name:"تانية إعدادي — منهج 2025/2026",
+ subjects:[
+  "اللغة العربية",
+  "اللغة الإنجليزية",
+  "الرياضيات",
+  "العلوم",
+  "الدراسات الاجتماعية",
+  "التربية الدينية"
+ ]
+},
+
+prep3:{
+ name:"تالتة إعدادي",
+ subjects:[
+  "اللغة العربية",
+  "اللغة الإنجليزية",
+  "الرياضيات",
+  "العلوم",
+  "الدراسات الاجتماعية",
+  "التربية الدينية"
+ ]
+},
+
+sec1:{
+ name:"أولى ثانوي",
+ subjects:[
+  "اللغة العربية",
+  "اللغة الإنجليزية",
+  "الرياضيات",
+  "العلوم المتكاملة",
+  "التاريخ"
+ ]
+},
+
+sec2:{
+ name:"تانية ثانوي",
+ subjects:[
+  "اللغة العربية",
+  "اللغة الإنجليزية",
+  "الرياضيات",
+  "الفيزياء",
+  "الكيمياء"
+ ]
+},
+
+bac1:{
+ name:"أولى بكالوريا 2026/2027",
+ subjects:[
+  "المواد الأساسية",
+  "المواد التخصصية"
+ ]
+}
+
+};
 
 
-  <!-- ================= MAIN ================= -->
-  <main id="home">
+const sciencePrep3 = {
 
-    <!-- ===== HERO ===== -->
-    <section class="hero-section">
+"الوحدة الأولى: القوى والحركة":[
+ "الحركة",
+ "السرعة",
+ "السرعة النسبية"
+],
 
-      <div class="hero-content">
+"الوحدة الثانية: الكون والنظام الشمسي":[
+ "الكون",
+ "المجرات",
+ "المجموعة الشمسية"
+],
 
-        <div class="hero-badge">
-          🌱 مستعد تبدأ رحلة التعلم؟
-        </div>
+"الوحدة الثالثة: الضوء":[
+ "المرايا",
+ "العدسات",
+ "تطبيقات العدسات"
+],
 
-        <h1>
-          اتعلم،
-          <span>افهم،</span>
-          واتطور
-        </h1>
+"الوحدة الرابعة: التفاعلات الكيميائية":[
+ "التفاعلات الكيميائية",
+ "المعادلات الكيميائية",
+ "العوامل المؤثرة في التفاعل"
+]
 
-        <p>
-          شرح مبسط، تدريبات، اختبارات، ومساعد ذكي
-          يساعدك خطوة بخطوة في رحلتك التعليمية.
-        </p>
+};
 
-        <div class="hero-buttons">
 
-          <button
-            class="primary-button"
-            type="button"
-            onclick="startLearning()"
-          >
-            🚀 ابدأ التعلم
+let currentGrade = "";
+let currentSubject = "";
+let currentLesson = "";
+
+
+function showPage(id){
+
+ document.querySelectorAll(".page").forEach(page=>{
+   page.classList.remove("active");
+ });
+
+ document.getElementById(id).classList.add("active");
+
+ window.scrollTo(0,0);
+}
+
+
+function openGrade(id){
+
+ currentGrade=id;
+
+ document.getElementById("gradeTitle").textContent =
+ curriculum[id].name;
+
+ const grid=document.getElementById("subjectsGrid");
+
+ grid.innerHTML="";
+
+ curriculum[id].subjects.forEach(subject=>{
+
+   const card=document.createElement("div");
+
+   card.className="card subject-card";
+
+   card.innerHTML=`
+     <h3>📖 ${subject}</h3>
+     <p>الدروس والمراجعة والاختبارات.</p>
+     <button onclick="openSubject('${subject}')">
+       فتح المادة
+     </button>
+   `;
+
+   grid.appendChild(card);
+
+ });
+
+ showPage("subjects");
+}
+
+
+function openSubject(subject){
+
+ currentSubject=subject;
+
+ document.getElementById("subjectTitle").textContent =
+ "📖 " + subject;
+
+ const content=document.getElementById("lessonsContent");
+
+ content.innerHTML="";
+
+ if(currentGrade==="prep3" && subject==="العلوم"){
+
+   Object.keys(sciencePrep3).forEach(unit=>{
+
+     const unitBox=document.createElement("div");
+
+     unitBox.className="unit";
+
+     let html=`<h3>📚 ${unit}</h3>`;
+
+     sciencePrep3[unit].forEach(lesson=>{
+
+       html+=`
+        <div class="lesson">
+          <span>🔹 ${lesson}</span>
+          <button onclick="openLesson('${lesson}')">
+            ابدأ الدرس
           </button>
-
-          <a
-            href="#features"
-            class="secondary-button"
-          >
-            ✨ اكتشف نَبْتة
-          </a>
-
         </div>
+       `;
 
-      </div>
+     });
 
-      <div class="hero-visual" aria-hidden="true">
+     unitBox.innerHTML=html;
 
-        <div class="floating-card card-one">
-          📚
-          <span>شرح الدروس</span>
-        </div>
+     content.appendChild(unitBox);
 
-        <div class="floating-card card-two">
-          🤖
-          <span>مساعدك الذكي</span>
-        </div>
+   });
 
-        <div class="main-plant">
-          🌱
-        </div>
+ }else{
 
-        <div class="floating-card card-three">
-          🎁
-          <span>إنجازاتك</span>
-        </div>
+   content.innerHTML=`
+    <div class="card">
+      <h3>🚧 المحتوى قادم</h3>
+      <p>
+        سيتم إضافة الوحدات والدروس والاختبارات لهذه المادة
+        تدريجيًا في نَبْتة.
+      </p>
+    </div>
+   `;
 
-      </div>
+ }
 
-    </section>
-
-
-    <!-- ===== STAGES ===== -->
-    <section
-      class="section"
-      id="stages"
-    >
-
-      <div class="section-heading">
-
-        <span class="section-label">
-          🎓 ابدأ من هنا
-        </span>
-
-        <h2>
-          اختار مرحلتك التعليمية
-        </h2>
-
-        <p>
-          اختار المرحلة والصف عشان نجهزلك المحتوى المناسب ليك.
-        </p>
-
-      </div>
+ showPage("lessons");
+}
 
 
-      <div class="stage-grid">
+function openLesson(lesson){
 
-        <!-- الإعدادية -->
-        <article class="stage-card">
+ currentLesson=lesson;
 
-          <div class="stage-icon">
-            📚
-          </div>
+ const lessons={
 
-          <div class="stage-content">
+  "الحركة":{
+    text:"الحركة هي تغير موضع الجسم بمرور الزمن بالنسبة إلى جسم آخر يُعد ثابتًا.",
+    question:"ماذا تعني الحركة؟",
+    a:"تغير موضع الجسم بمرور الزمن",
+    b:"ثبات الجسم دائمًا",
+    c:"زيادة كتلة الجسم",
+    correct:"a"
+  },
 
-            <span class="stage-number">
-              01
-            </span>
+  "السرعة":{
+    text:"السرعة هي المسافة التي يقطعها الجسم خلال وحدة الزمن.",
+    question:"السرعة تساوي:",
+    a:"المسافة ÷ الزمن",
+    b:"الزمن ÷ المسافة",
+    c:"المسافة × الكتلة",
+    correct:"a"
+  },
 
-            <h3>
-              المرحلة الإعدادية
-            </h3>
+  "السرعة النسبية":{
+    text:"السرعة النسبية هي سرعة جسم كما تبدو بالنسبة إلى جسم آخر.",
+    question:"تعتمد السرعة النسبية على:",
+    a:"سرعة الجسمين واتجاه حركتهما",
+    b:"كتلة الجسم فقط",
+    c:"لون الجسم",
+    correct:"a"
+  },
 
-            <p>
-              أولى إعدادي • تانية إعدادي • تالتة إعدادي
-            </p>
+  "الكون":{
+    text:"الكون هو كل ما يحيط بنا من مادة وطاقة ومجرات ونجوم وكواكب وأجرام أخرى.",
+    question:"الكون يحتوي على:",
+    a:"المجرات والنجوم والأجرام المختلفة",
+    b:"الأرض فقط",
+    c:"القمر فقط",
+    correct:"a"
+  },
 
-          </div>
+  "المجرات":{
+    text:"المجرة تجمع ضخم من النجوم والغازات والغبار المرتبطين معًا بالجاذبية.",
+    question:"المجرة تتكون من:",
+    a:"نجوم وغازات وغبار وأجرام أخرى",
+    b:"الماء فقط",
+    c:"كوكب واحد فقط",
+    correct:"a"
+  },
 
-          <button
-            type="button"
-            class="stage-button"
-            onclick="selectStage('prep')"
-          >
-            اختار المرحلة
-            <span>←</span>
-          </button>
+  "المجموعة الشمسية":{
+    text:"المجموعة الشمسية تضم الشمس وما يدور حولها من كواكب وأجرام أخرى.",
+    question:"ما مركز المجموعة الشمسية؟",
+    a:"الشمس",
+    b:"القمر",
+    c:"الأرض",
+    correct:"a"
+  },
 
-        </article>
+  "المرايا":{
+    text:"المرايا أسطح عاكسة للضوء، ويمكن أن تكون مستوية أو كروية.",
+    question:"المرايا تعتمد على ظاهرة:",
+    a:"انعكاس الضوء",
+    b:"تبخر الماء",
+    c:"التوصيل الحراري",
+    correct:"a"
+  },
 
+  "العدسات":{
+    text:"العدسة جسم شفاف يغير مسار الضوء بالانكسار، وتستخدم لتكوين الصور.",
+    question:"العدسات تعتمد على:",
+    a:"انكسار الضوء",
+    b:"احتراق الضوء",
+    c:"تجميد الضوء",
+    correct:"a"
+  },
 
-        <!-- البكالوريا -->
-        <article class="stage-card">
+  "تطبيقات العدسات":{
+    text:"تستخدم العدسات في العديد من الأجهزة مثل النظارات والكاميرات والمجاهر.",
+    question:"من تطبيقات العدسات:",
+    a:"النظارات والكاميرات",
+    b:"الملاعق فقط",
+    c:"الطاولات",
+    correct:"a"
+  },
 
-          <div class="stage-icon">
-            🎓
-          </div>
+  "التفاعلات الكيميائية":{
+    text:"التفاعل الكيميائي عملية تتحول فيها مواد إلى مواد جديدة لها خواص مختلفة.",
+    question:"في التفاعل الكيميائي تتكون:",
+    a:"مواد جديدة",
+    b:"مواد بلا أي تغيير",
+    c:"أجسام فلكية",
+    correct:"a"
+  },
 
-          <div class="stage-content">
+  "المعادلات الكيميائية":{
+    text:"المعادلة الكيميائية تمثل التفاعل الكيميائي باستخدام رموز وصيغ كيميائية.",
+    question:"المعادلة الكيميائية تستخدم لتمثيل:",
+    a:"التفاعل الكيميائي",
+    b:"حركة الكواكب فقط",
+    c:"درجة الحرارة فقط",
+    correct:"a"
+  },
 
-            <span class="stage-number">
-              02
-            </span>
+  "العوامل المؤثرة في التفاعل":{
+    text:"يمكن أن تؤثر عوامل مثل درجة الحرارة والتركيز ومساحة السطح في سرعة بعض التفاعلات الكيميائية.",
+    question:"من العوامل التي قد تؤثر في سرعة التفاعل:",
+    a:"درجة الحرارة",
+    b:"لون الكتاب",
+    c:"اسم الطالب",
+    correct:"a"
+  }
 
-            <h3>
-              البكالوريا المصرية
-            </h3>
+ };
 
-            <p>
-              الصف الأول بكالوريا
-            </p>
+ const data=lessons[lesson];
 
-          </div>
+ document.getElementById("lessonTitle").textContent =
+ "📘 " + lesson;
 
-          <button
-            type="button"
-            class="stage-button"
-            onclick="selectStage('baccalaureate')"
-          >
-            اختار المرحلة
-            <span>←</span>
-          </button>
+ document.getElementById("lessonText").textContent =
+ data ? data.text : "سيتم إضافة شرح هذا الدرس قريبًا.";
 
-        </article>
+ document.getElementById("question").textContent =
+ data ? data.question : "سؤال الدرس";
 
-      </div>
+ document.getElementById("optionA").textContent =
+ data ? data.a : "الإجابة الأولى";
 
-    </section>
+ document.getElementById("optionB").textContent =
+ data ? data.b : "الإجابة الثانية";
 
+ document.getElementById("optionC").textContent =
+ data ? data.c : "الإجابة الثالثة";
 
-    <!-- ===== FEATURES ===== -->
-    <section
-      class="section features-section"
-      id="features"
-    >
+ document.querySelectorAll('input[name="answer"]').forEach(x=>{
+   x.checked=false;
+ });
 
-      <div class="section-heading">
+ document.getElementById("result").textContent="";
 
-        <span class="section-label">
-          ✨ ليه نَبْتة؟
-        </span>
-
-        <h2>
-          كل أدوات التعلم في مكان واحد
-        </h2>
-
-        <p>
-          مش مجرد شرح للدروس؛ هتتعلم، تتدرب، وتعرف مستواك.
-        </p>
-
-      </div>
-
-
-      <div class="features-grid">
-
-        <article class="feature-card">
-          <div class="feature-icon">📖</div>
-          <h3>شرح واضح</h3>
-          <p>
-            شرح منظم ومقسم لأجزاء صغيرة عشان المعلومة تثبت.
-          </p>
-        </article>
-
-
-        <article class="feature-card">
-          <div class="feature-icon">📝</div>
-          <h3>واجبات واختبارات</h3>
-          <p>
-            اختبر فهمك بعد كل درس وتعرف إيه اللي محتاج تراجعه.
-          </p>
-        </article>
-
-
-        <article class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>مساعد ذكي</h3>
-          <p>
-            اسأل عن الدرس وخد شرح مناسب لمستواك بطريقة بسيطة.
-          </p>
-        </article>
-
-
-        <article class="feature-card">
-          <div class="feature-icon">🎁</div>
-          <h3>إنجازات ومكافآت</h3>
-          <p>
-            اجمع XP وStickers وافتح إنجازات جديدة مع تقدمك.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
+ showPage("lessonPage");
+}
 
 
-    <!-- ===== HOW IT WORKS ===== -->
-    <section class="section journey-section">
+function checkAnswer(){
 
-      <div class="section-heading">
+ const selected=document.querySelector(
+   'input[name="answer"]:checked'
+ );
 
-        <span class="section-label">
-          🧭 رحلتك
-        </span>
+ const result=document.getElementById("result");
 
-        <h2>
-          هتتعلم
+ if(!selected){
+   result.textContent="⚠️ اختار إجابة الأول.";
+   return;
+ }
+
+ if(selected.value==="a"){
+   result.textContent="🎉 إجابة صحيحة! أحسنت يا بطل 🌱";
+ }else{
+   result.textContent="❌ الإجابة غير صحيحة. راجع الشرح وحاول مرة أخرى.";
+ }
+
+}
+
+</script>
+
+</body>
+</html>
